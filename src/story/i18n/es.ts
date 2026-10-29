@@ -1,6 +1,6 @@
-import type { I18nStrings } from './en';
+import { plural, type I18nStrings } from './en';
 
-const es: I18nStrings = {
+const es = {
   visibility: {
     public: 'Código abierto',
     private: 'Repositorio privado',
@@ -19,26 +19,15 @@ const es: I18nStrings = {
   },
   numbers: {
     actLabel: 'En cifras',
-    yearsShipping: (n) => {
-      const pr = new Intl.PluralRules('es');
-      return pr.select(n) === 'one' ? 'año programando' : 'años programando';
-    },
-    commits: (n) => {
-      const pr = new Intl.PluralRules('es');
-      return pr.select(n) === 'one' ? 'commit' : 'commits';
-    },
-    clients: (n) => {
-      const pr = new Intl.PluralRules('es');
-      return pr.select(n) === 'one' ? 'cliente' : 'clientes';
-    },
-    repositories: (n) => {
-      const pr = new Intl.PluralRules('es');
-      return pr.select(n) === 'one' ? 'repositorio' : 'repositorios';
-    },
+    yearsShipping: (n) => plural('es', n, 'año programando', 'años programando'),
+    commits: (n) => plural('es', n, 'commit', 'commits'),
+    clients: (n) => plural('es', n, 'cliente', 'clientes'),
+    repositories: (n) => plural('es', n, 'repositorio', 'repositorios'),
     icebergHigh: 'de este trabajo vive en repos privados. GitHub solo muestra la punta del iceberg.',
     icebergLow: 'de este trabajo vive en repos privados — la parte que GitHub nunca muestra.',
     publicLabel: 'Público',
     privateLabel: 'Privado',
+    splitAriaLabel: 'Commits públicos versus privados',
   },
   clientsSection: {
     actLabel: 'Quién confió en mí para producción',
@@ -66,6 +55,7 @@ const es: I18nStrings = {
     actLabel: 'Reconocimientos',
     certified: 'Certificaciones',
     verify: 'Verificar ↗',
+    verifyLabel: (name) => `Verificar ${name}`,
   },
   pressTour: {
     actLabel: 'Gira de prensa',
@@ -73,18 +63,12 @@ const es: I18nStrings = {
   activity: {
     actLabelActivity: 'Cada commit cuenta',
     actLabelPlatforms: 'Dónde vive el código',
-    contributions: (n) => {
-      const pr = new Intl.PluralRules('es');
-      return pr.select(n) === 'one' ? 'contribución' : 'contribuciones';
-    },
+    contributions: (n) => plural('es', n, 'contribución', 'contribuciones'),
     commitsPerDay: (year) => `Commits por día en ${year}`,
     contributionHeatmap: (year) => `Mapa de contribuciones de ${year}`,
     imported: '✓ importado',
     selfReported: 'auto-reportado',
-    repos: (n) => {
-      const pr = new Intl.PluralRules('es');
-      return pr.select(n) === 'one' ? 'repo' : 'repos';
-    },
+    repos: (n) => plural('es', n, 'repo', 'repos'),
     repositoriesLabel: 'repositorios',
   },
   training: {

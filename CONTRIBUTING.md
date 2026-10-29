@@ -117,13 +117,13 @@ The type `I18nStrings` in `en.ts` defines the shape. Your translation file shoul
 
 **Plural forms:** Use `Intl.PluralRules` for plurals — see the existing functions in `en.ts` and `es.ts` for examples. Never hard-code plural logic.
 
-**Number and date formatting:** `ProfileStory` uses `Intl.NumberFormat` and `Intl.DateTimeFormat` with the resolved language. You don't need to do anything special for these.
+**Number formatting:** `ProfileStory` uses `Intl.NumberFormat` with the resolved language. You don't need to do anything special for these.
 
 **Checklist for a language PR:**
 - All keys in `en.ts` are present in your translation.
 - `npm run check` passes (types).
 - `npm run build && npm run test:a11y` passes — longer strings may need CSS tweaks.
-- Check that your language looks right on desktop and phone (use the editor preview with `?theme=<theme>&lang=<your-lang>`).
+- Check that your language looks right on desktop and phone (set `lang: <your-lang>` in a test profile's YAML and use the editor preview).
 
 ## Commits and PRs
 

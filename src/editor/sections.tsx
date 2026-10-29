@@ -51,7 +51,7 @@ export function ProfileSection({ p, up, issues, notify, canUpload = false }: Sec
           options={LANG_OPTIONS.map((o) => o.id)}
           onChange={(lang) => set({ lang: lang || undefined })}
           error={issues['profile.lang']}
-          hint="Story labels and number formatting"
+          hint={`Story labels and number formatting (${SUPPORTED_LANGS.join(', ')})`}
         />
       </div>
 
